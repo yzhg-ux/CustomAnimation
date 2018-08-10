@@ -2,11 +2,12 @@ package cn.yzhg.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -17,6 +18,7 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     Button butOfFloat;
     @BindView(R.id.but_interpolator)
     Button butInterpolator;
+    @BindView(R.id.but_interpolator_color)
+    Button butInterpolatorColor;
+    @BindView(R.id.but_ofObject)
+    Button butOfObject;
+    @BindView(R.id.tv_setText)
+    TextView tvSetText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +79,36 @@ public class MainActivity extends AppCompatActivity {
         butOfInt.setOnClickListener(v -> setOfIntAnimation());
         butOfFloat.setOnClickListener(v -> setOfFloatAnimation());
         butInterpolator.setOnClickListener(v -> setInterpolatorAnimation());
+        butInterpolatorColor.setOnClickListener(v -> setInterpolatorColorAnimation());
+        butOfObject.setOnClickListener(v -> setOfObjectAnimator());
+    }
+
+    /**
+     * Android 值动画,自定义Evaluator实现TextView 变化
+     */
+    private void setOfObjectAnimator() {
+        ValueAnimator valueAnimator = ValueAnimator.ofObject(new CharEvaluator(), 'A', 'Z');
+        valueAnimator.addUpdateListener(animation -> {
+            char text = (char) animation.getAnimatedValue();
+            tvSetText.setText(String.valueOf(text));
+        });
+        valueAnimator.setDuration(10000);
+        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        valueAnimator.start();
+    }
+
+    /**
+     * Android 值动画 颜色值渐变
+     */
+    private void setInterpolatorColorAnimation() {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0xFFFFF00, 0xFF0000FF);
+        valueAnimator.setDuration(3000);
+        valueAnimator.setEvaluator(new ArgbEvaluator());
+        valueAnimator.addUpdateListener(animation -> {
+            int colorAnimation = (int) animation.getAnimatedValue();
+            ivScaleAnimation.setBackgroundColor(colorAnimation);
+        });
+        valueAnimator.start();
     }
 
     /**
@@ -79,8 +117,9 @@ public class MainActivity extends AppCompatActivity {
     private void setInterpolatorAnimation() {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 600);
         valueAnimator.setDuration(1000);
+        valueAnimator.setEvaluator(new MyEvaluator());
         /*添加弹跳的插值器*/
-        valueAnimator.setInterpolator(new BounceInterpolator());
+        // valueAnimator.setInterpolator(new MyInterploator());
         valueAnimator.addUpdateListener(animation -> {
             int animatedValue = (int) animation.getAnimatedValue();
             ivScaleAnimation.layout(ivScaleAnimation.getLeft(), animatedValue, ivScaleAnimation.getRight(), animatedValue + ivScaleAnimation.getHeight());

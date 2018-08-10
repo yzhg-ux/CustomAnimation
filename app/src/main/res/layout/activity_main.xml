@@ -106,20 +106,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ofFloat" />
+
         <Button
             android:id="@+id/but_interpolator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="interpolator" />
+
+        <Button
+            android:id="@+id/but_interpolator_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="color" />
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/iv_scale_animation"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:background="@mipmap/ic_launcher" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_ofObject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ofObject" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_scale_animation"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_setText"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="18dp"
+            android:background="#FF0000"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 
 </LinearLayout>
