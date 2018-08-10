@@ -6,4 +6,20 @@ package cn.yzhg.animation.custom_circle;
  */
 public class Point {
 
+    /**
+     * 表示当前point的半径
+     */
+    private int radius;
+
+    public Point(int radius) {
+        this.radius = radius;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
 }

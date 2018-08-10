@@ -137,12 +137,17 @@
             android:layout_height="wrap_content"
             android:text="moneyChange" />
 
+        <Button
+            android:id="@+id/but_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="绘制动画圆" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="24dp"
         android:gravity="center">
 
@@ -150,7 +155,7 @@
             android:id="@+id/iv_scale_animation"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:background="@mipmap/ic_launcher" />
 
         <TextView
@@ -163,6 +168,13 @@
             android:text="A"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
+
+        <cn.yzhg.animation.custom_circle.MyPointView
+            android:id="@+id/my_point_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:background="#FFFFFF" />
     </LinearLayout>
 
 

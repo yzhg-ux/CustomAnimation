@@ -3,7 +3,6 @@ package cn.yzhg.animation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
-import android.animation.FloatEvaluator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +25,7 @@ import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.yzhg.animation.custom_circle.MyPointView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tvSetText;
     @BindView(R.id.but_money)
     Button butMoney;
+    @BindView(R.id.my_point_view)
+    MyPointView myPointView;
+    @BindView(R.id.but_circle)
+    Button butCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         butInterpolatorColor.setOnClickListener(v -> setInterpolatorColorAnimation());
         butOfObject.setOnClickListener(v -> setOfObjectAnimator());
         butMoney.setOnClickListener(v -> setMoneyChangeAnimation());
+        butCircle.setOnClickListener(v -> myPointView.doPointAnim());
     }
 
     /**
