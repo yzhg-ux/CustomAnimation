@@ -49,7 +49,70 @@
             android:layout_height="wrap_content"
             android:text="set" />
 
+        <Button
+            android:id="@+id/but_set_java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set_java" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="java代码生成动画" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_scale_java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scale" />
+
+        <Button
+            android:id="@+id/but_alpha_java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alpha" />
+
+        <Button
+            android:id="@+id/but_rotate_java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rotate" />
+
+        <Button
+            android:id="@+id/but_translate_java"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="translate" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_OfInt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ofInt" />
+
+        <Button
+            android:id="@+id/but_ofFloat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ofFloat" />
+        <Button
+            android:id="@+id/but_interpolator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="interpolator" />
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/iv_scale_animation"
