@@ -3,10 +3,12 @@ package cn.yzhg.animation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
+import android.animation.FloatEvaluator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -19,6 +21,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     Button butOfObject;
     @BindView(R.id.tv_setText)
     TextView tvSetText;
+    @BindView(R.id.but_money)
+    Button butMoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +87,22 @@ public class MainActivity extends AppCompatActivity {
         butInterpolator.setOnClickListener(v -> setInterpolatorAnimation());
         butInterpolatorColor.setOnClickListener(v -> setInterpolatorColorAnimation());
         butOfObject.setOnClickListener(v -> setOfObjectAnimator());
+        butMoney.setOnClickListener(v -> setMoneyChangeAnimation());
+    }
+
+    /**
+     * Android 值动画, 实现数字的变化
+     */
+    private void setMoneyChangeAnimation() {
+        ValueAnimator valueAnimator = ValueAnimator.ofObject(new CustomMoneyEvaluator(), 0, 8000.60f);
+        valueAnimator.addUpdateListener(animation -> {
+            float text = (float) animation.getAnimatedValue();
+            String valueOf = String.valueOf(text);
+            tvSetText.setText(saveString(valueOf));
+        });
+        valueAnimator.setDuration(1000);
+        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        valueAnimator.start();
     }
 
     /**
@@ -273,5 +295,16 @@ public class MainActivity extends AppCompatActivity {
     private void setScaleAnimation() {
         Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scale_animation);
         ivScaleAnimation.startAnimation(scaleAnimation);
+    }
+
+    /**
+     * 保留两位小数
+     *
+     * @param money
+     * @return
+     */
+    public static String saveString(String money) {
+        DecimalFormat df = new DecimalFormat("######0.00");
+        return df.format(Double.valueOf(money));
     }
 }
