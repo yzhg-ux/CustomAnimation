@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_object"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alpha" />
+
+        <Button
+            android:id="@+id/but_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="scale" />
+
+        <Button
+            android:id="@+id/but_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="translate" />
+
+        <Button
+            android:id="@+id/but_rotationX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rotationX" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_custom_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="custom_circle" />
+
+        <Button
+            android:id="@+id/but_PropertyValuesHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PropertyValuesHolder" />
+
+        <Button
+            android:id="@+id/but_cs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cs" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/but_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone" />
+
+        <Button
+            android:id="@+id/phone_vibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone_vibration" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_custom_layout"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/ic_launcher" />
+
+        <cn.yzhg.animation.custom_object_circle.MyPointView
+            android:id="@+id/my_point_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <cn.yzhg.animation.custom_object_circle.CustomNumChange
+            android:id="@+id/tv_custom_text"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:background="#FF0000"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/phone" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

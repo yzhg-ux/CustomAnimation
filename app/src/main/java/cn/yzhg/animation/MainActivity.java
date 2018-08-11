@@ -69,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
     MyPointView myPointView;
     @BindView(R.id.but_circle)
     Button butCircle;
+    @BindView(R.id.but_jump_custom)
+    Button butJumpCustom;
+    @BindView(R.id.but_set_animation)
+    Button butSetAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         butOfObject.setOnClickListener(v -> setOfObjectAnimator());
         butMoney.setOnClickListener(v -> setMoneyChangeAnimation());
         butCircle.setOnClickListener(v -> myPointView.doPointAnim());
+        butJumpCustom.setOnClickListener(v -> CustomAnimation.newInstance(this));
+        butSetAnimation.setOnClickListener(v -> SetAnimation.newInstance(MainActivity.this));
     }
 
     /**
