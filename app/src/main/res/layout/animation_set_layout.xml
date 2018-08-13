@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:id="@+id/button_"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/button_playSequentially"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="playSequentially" />
 
+        <Button
+            android:id="@+id/but_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set_animation" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_demo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ff00ff"
+            android:padding="10dp"
+            android:text="textview1" />
+
+        <TextView
+            android:id="@+id/text_demo2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Hello qijian" />
+    </LinearLayout>
 
 </LinearLayout>
